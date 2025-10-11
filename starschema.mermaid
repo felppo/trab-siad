@@ -1,0 +1,48 @@
+erDiagram
+    Dlocal ||--|{ Fvulnsoc : ""
+    Dtempo ||--|{ Fvulnsoc : ""
+    Dlocal ||--|{ Fsegpub : ""
+    Dtipocrime ||--|{ Fsegpub : ""
+    Dtempo ||--|{ Fsegpub : ""
+
+    Dtempo {
+        int idtempo PK
+        int mes
+        int ano
+        varchar trimestre
+    }
+    Dlocal {
+        int idlocal PK
+        char(7) codibge
+        char(2) uf
+        varchar municipio
+    }
+    Dtipocrime {
+        int idtipocrime PK
+        varchar nome
+        boolean letal
+    }
+    Fsegpub {
+        %% int idsegpub PK
+        int idtempo FK
+        int idlocal FK
+        int idtipocrime FK
+        int ocorrencias
+        int vitimasfatais
+        %% float tx100mil
+    }
+    Fvulnsoc {
+        %% int idvulnsoc PK
+        int idtempo FK
+        int idlocal FK
+        int populacao
+        float ivs
+        float idhm
+        float gini
+        float rendamedia
+        float txdesocupacao
+        float txeletricidade
+        float txfecundidade
+        float txmortinfantil
+        float txsaneamento
+    }
