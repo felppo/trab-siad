@@ -7,15 +7,15 @@ erDiagram
 
     Dtempo {
         int idtempo PK
-        int mes
         int ano
-        varchar trimestre
+        %% int mes
+        %% varchar trimestre
     }
     Dlocal {
         int idlocal PK
-        char(7) codibge
+        char(2) codibge
         char(2) uf
-        varchar municipio
+        %% varchar municipio
     }
     Dtipocrime {
         int idtipocrime PK
@@ -23,18 +23,16 @@ erDiagram
         boolean letal
     }
     Fsegpub {
-        %% int idsegpub PK
-        int idtempo FK
         int idlocal FK
+        int idtempo FK
         int idtipocrime FK
         int ocorrencias
-        int vitimasfatais
-        %% float tx100mil
+        %% int vitimasfatais
+        float tx100mil
     }
     Fvulnsoc {
-        %% int idvulnsoc PK
-        int idtempo FK
         int idlocal FK
+        int idtempo FK
         int populacao
         float ivs
         float ivs_infraurb
